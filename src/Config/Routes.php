@@ -1,5 +1,7 @@
 <?php
 
+namespace Michalsn\CodeIgniterKinde\Config;
+
 $routes->get('login', static function () {
     return service('kinde')->login();
 }, ['as' => 'login']);

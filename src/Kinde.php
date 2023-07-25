@@ -73,8 +73,9 @@ class Kinde
     {
         if (method_exists($this->kindeClient, $name)) {
             return call_user_func_array([$this->kindeClient, $name], $args);
-        } else {
-            throw new BadMethodCallException("Method $name does not exist in KindeClientSDK.");
         }
+
+        throw new BadMethodCallException("Method {$name} does not exist in KindeClientSDK.");
+
     }
 }

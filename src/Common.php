@@ -5,13 +5,9 @@ function authenticated(): bool
     return service('kinde')->isAuthenticated();
 }
 
-function can(string $permission):bool
+function can(string $permission): bool
 {
     $kinde = service('kinde');
 
-    if ($kinde->isAuthenticated() && $kinde->getPermission($permission)['isGranted']) {
-        return true;
-    }
-
-    return false;
+    return (bool) ($kinde->isAuthenticated() && $kinde->getPermission($permission)['isGranted']);
 }
