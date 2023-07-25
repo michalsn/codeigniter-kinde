@@ -1,6 +1,6 @@
 # CodeIgniter Kinde
 
-Basic integration for [Kinde](https://kinde.com/)
+Basic integration for [Kinde](https://kinde.com/) authentication.
 
 [![PHPUnit](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpunit.yml/badge.svg)](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpunit.yml)
 [![PHPStan](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpstan.yml/badge.svg)](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpstan.yml)
