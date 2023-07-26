@@ -7,12 +7,7 @@ parameters:
 	bootstrapFiles:
 		- vendor/codeigniter4/framework/system/Test/bootstrap.php
 	excludePaths:
-	    - src/Config/Routes.php
 	ignoreErrors:
-	    - '#Variable \$routes might not be defined.#'
-	    - '#Call to an undefined method Michalsn\\CodeIgniterKinde\\Kinde::login\(\).#'
-	    - '#Call to an undefined method Michalsn\\CodeIgniterKinde\\Kinde::register\(\).#'
-	    - '#Call to an undefined method Michalsn\\CodeIgniterKinde\\Kinde::logout\(\).#'
 	    - '#Access to an undefined property Kinde\\KindeSDK\\KindeClientSDK::\$isAuthenticated.#'
 	universalObjectCratesClasses:
 		- CodeIgniter\Entity
