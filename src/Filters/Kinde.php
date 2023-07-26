@@ -38,7 +38,7 @@ class Kinde implements FilterInterface
         }
 
         if (! service('kinde')->isAuthenticated()) {
-            if ($this->request->is('json')) {
+            if ($request->is('json')) {
                 return service('response')
                     ->setStatusCode(401)
                     ->setJSON([
