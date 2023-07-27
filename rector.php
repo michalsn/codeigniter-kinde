@@ -71,6 +71,7 @@ return static function (RectorConfig $rectorConfig): void {
     // Are there files or rules you need to skip?
     $rectorConfig->skip([
         __DIR__ . '/app/Views',
+        __DIR__ . '/src/Models/UserModel.php',
 
         JsonThrowOnErrorRector::class,
         StringifyStrNeedlesRector::class,
