@@ -9,5 +9,5 @@ function can(string $permission): bool
 {
     $kinde = service('kinde');
 
-    return (bool) ($kinde->isAuthenticated() && $kinde->getPermission($permission)['isGranted']);
+    return $kinde->isAuthenticated() && $kinde->getPermission($permission)['isGranted'];
 }
