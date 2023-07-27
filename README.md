@@ -52,12 +52,26 @@ Also add the required helper to the same file under `$files` array:
     // ...
 ```
 
+### Database
+
+    php spark migrate --all
+
+### Config
+
+See what configuration variables can be set by looking at the `src/Config/Kinde.php` file and use the `.env` file to set them.
+
+See the [getting started](https://kinde.com/docs/developer-tools/php-sdk/) article for reference.
+
 ### Routes
 
 - `login`
 - `register`
 - `logout`
 - `callback`
+
+### Filers
+
+- `kinde`
 
 ### Helper functions
 
