@@ -7,6 +7,8 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     autoloader="psalm_autoload.php"
     cacheDirectory="build/psalm/"
+    findUnusedBaselineEntry="true"
+    findUnusedCode="false"
 >
     <projectFiles>
         <directory name="src/" />
@@ -14,7 +16,4 @@
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
-    <issueHandlers>
-        <UndefinedFunction errorLevel="suppress" />
-    </issueHandlers>
 </psalm>
