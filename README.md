@@ -69,7 +69,7 @@ class Home extends BaseController
             return $this->response->setHeader(401)->setBody('401 Unauthorized');
         }
 
-        if (! can('home:view')) {
+        if (! can('view:home')) {
             return $this->response->setHeader(401)->setBody('Not enough permissions to view this page');
         }
 

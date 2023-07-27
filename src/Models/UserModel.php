@@ -13,7 +13,7 @@ class UserModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kinde_id', 'first_name', 'last_name', 'email', 'last_login_at'];
+    protected $allowedFields    = ['identity', 'first_name', 'last_name', 'email', 'last_login_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -22,13 +22,13 @@ class UserModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    public function findByKindeId(string $kindeId)
+    public function findByIdentity(string $identity)
     {
-        return $this->where('kinde_id', $kindeId)->first();
+        return $this->where('identity', $identity)->first();
     }
 
-    public function updateByKindeId(string $kindeId, array $data)
+    public function updateByIdentity(string $identity, array $data)
     {
-        return $this->where('kinde_id', $kindeId)->set($data)->update();
+        return $this->where('identity', $identity)->set($data)->update();
     }
 }

@@ -10,7 +10,7 @@ class CreateUsersTable extends Migration
     {
         $this->forge->addField([
             'id'            => ['type' => 'bigint', 'unsigned' => true, 'null' => false, 'auto_increment' => true],
-            'kinde_id'      => ['type' => 'varchar', 'constraint' => 64, 'null' => false],
+            'identity'      => ['type' => 'varchar', 'constraint' => 64, 'null' => false],
             'email'         => ['type' => 'varchar', 'constraint' => 255, 'null' => false],
             'first_name'    => ['type' => 'varchar', 'constraint' => 255, 'null' => false],
             'last_name'     => ['type' => 'varchar', 'constraint' => 255, 'null' => false],
@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             'updated_at'    => ['type' => 'datetime', 'null' => true],
         ]);
         $this->forge->addKey('id', true, true);
-        $this->forge->addUniqueKey('kinde_id');
+        $this->forge->addUniqueKey('identity');
         $this->forge->createTable('users', true);
     }
 
