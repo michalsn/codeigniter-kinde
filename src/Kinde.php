@@ -40,8 +40,8 @@ class Kinde
 
             $userModel = model(UserModel::class);
 
-            if ($userModel->findByKindeId($profile['kinde_id'])) {
-                $userModel->updateByKindeId($profile['kinde_id'], $profile);
+            if ($userModel->findByIdentity($profile['identity'])) {
+                $userModel->updateByIdentity($profile['identity'], $profile);
             } else {
                 $userModel->insert($profile);
             }
@@ -60,7 +60,7 @@ class Kinde
     private function formatUserDetails(array $profile): array
     {
         return [
-            'kinde_id'      => $profile['id'],
+            'identity'      => $profile['id'],
             'first_name'    => $profile['given_name'],
             'last_name'     => $profile['family_name'],
             'email'         => $profile['email'],
