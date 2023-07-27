@@ -3,6 +3,9 @@
 Basic integration for [Kinde](https://kinde.com/) authentication.
 
 [![PHPStan](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpstan.yml/badge.svg)](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpstan.yml)
+[![PHPCPD](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpcpd.yml/badge.svg)](https://github.com/michalsn/codeigniter-kinde/actions/workflows/phpcpd.yml)
+[![Psalm](https://github.com/michalsn/codeigniter-kinde/actions/workflows/psalm.yml/badge.svg)](https://github.com/michalsn/codeigniter-kinde/actions/workflows/psalm.yml)
+[![Rector](https://github.com/michalsn/codeigniter-kinde/actions/workflows/recort.yml/badge.svg)](https://github.com/michalsn/codeigniter-kinde/actions/workflows/rector.yml)
 [![Deptrac](https://github.com/michalsn/codeigniter-kinde/actions/workflows/deptrac.yml/badge.svg)](https://github.com/michalsn/codeigniter-kinde/actions/workflows/deptrac.yml)
 
 ![PHP](https://img.shields.io/badge/PHP-%5E8.0-blue)
@@ -49,10 +52,18 @@ Also add the required helper to the same file under `$files` array:
     // ...
 ```
 
+### Routes
+
+- `login`
+- `logout`
+- `callback`
+
 ### Helper functions
 
 - `authenticated()` will check if current user is authenticated
 - `can($permission)` will check if current user has a permission
+- `user_id()` will return current user ID (database)
+- `user()` will return current user info (database)
 
 ### Example
 
