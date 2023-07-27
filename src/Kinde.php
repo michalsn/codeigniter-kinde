@@ -36,13 +36,14 @@ class Kinde
             $this->kindeConfig->setAccessToken($token->access_token);
 
             $profile = $this->kindeClient->getUserDetails();
-            $profile = $this->formatUserDetails($profile);
 
             $userModel = model(UserModel::class);
 
-            if ($userModel->findByIdentity($profile['identity'])) {
-                $userModel->updateByIdentity($profile['identity'], $profile);
+            if ($userModel->findByIdentity($profile['id'])) {
+                $user = $this->formatUserProfile($profile, true);
+                $userModel->updateByIdentity($profile['id'], $user);
             } else {
+                $user = $this->formatUserProfile($profile);
                 $userModel->insert($profile);
             }
 
@@ -57,16 +58,24 @@ class Kinde
         return $this->kindeClient->isAuthenticated;
     }
 
-    private function formatUserDetails(array $profile): array
+    protected function formatUserProfile(array $profile, bool $update = false): array
     {
-        return [
+        $data = [
             'identity'      => $profile['id'],
             'first_name'    => $profile['given_name'],
             'last_name'     => $profile['family_name'],
             'email'         => $profile['email'],
             'picture'       => $profile['picture'],
+            'language'      => $this->config->defaultLanguage,
+            'timezone'      => $this->config->defaultTimezone,
             'last_login_at' => Time::now('UTC')->format('Y-m-d H:i:s'),
         ];
+
+        if ($update) {
+            unset($data['language'], $data['timezone']);
+        }
+
+        return $data;
     }
 
     public function __call(string $name, array $args)

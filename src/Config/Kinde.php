@@ -14,6 +14,9 @@ class Kinde extends BaseConfig
     public string $clientSecret      = '';
     public string $grantType         = GrantType::authorizationCode;
 
+    public string $defaultLanguage = 'pl';
+    public string $defaultTimezone = 'Europe/Warsaw';
+
     public function afterCallbackSuccess()
     {
         return redirect()->to('/');
