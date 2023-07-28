@@ -12,9 +12,9 @@ use Throwable;
  */
 class KindePublish extends BaseCommand
 {
-    protected string $group       = 'Kinde';
-    protected string $name        = 'kinde:publish';
-    protected string $description = 'Publish Kinde config file into the current application.';
+    protected $group       = 'Kinde';
+    protected $name        = 'kinde:publish';
+    protected $description = 'Publish Kinde config file into the current application.';
 
     /**
      * @return void

@@ -72,6 +72,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->skip([
         __DIR__ . '/app/Views',
         __DIR__ . '/src/Models/UserModel.php',
+        __DIR__ . '/src/Commands/KindePublish.php',
 
         JsonThrowOnErrorRector::class,
         StringifyStrNeedlesRector::class,
