@@ -73,6 +73,12 @@ See the [getting started](https://kinde.com/docs/developer-tools/php-sdk/) artic
 
 - `kinde`
 
+### Commands
+
+To copy config file to the application namespace.
+
+    php spark kinde:publish
+
 ### Helper functions
 
 - `authenticated()` will check if current user is authenticated
