@@ -76,9 +76,10 @@ See the [getting started](https://kinde.com/docs/developer-tools/php-sdk/) artic
 ### Helper functions
 
 - `authenticated()` will check if current user is authenticated
-- `can($permission)` will check if current user has a permission
+- `can('permission')` will check if current user has a permission
 - `user_id()` will return current user ID (database)
-- `user()` will return current user info (database)
+- `user()` or `user('field')` will return current user info (database)
+- `kinde_user()` will return the Kinde user array or `null`
 
 ### Example
 

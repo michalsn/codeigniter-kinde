@@ -28,3 +28,12 @@ function user(?string $key = null)
 
     return $key === null ? $user : $user[$key] ?? null;
 }
+
+function kinde_user()
+{
+    if (service('kinde')->isAuthenticated()) {
+        return service('kinde')->getUserDetails();
+    }
+
+    return null;
+}
