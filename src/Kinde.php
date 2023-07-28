@@ -3,7 +3,6 @@
 namespace Michalsn\CodeIgniterKinde;
 
 use BadMethodCallException;
-use CodeIgniter\I18n\Time;
 use Kinde\KindeSDK\Configuration;
 use Kinde\KindeSDK\KindeClientSDK;
 use Michalsn\CodeIgniterKinde\Config\Kinde as KindeConfig;
@@ -40,11 +39,11 @@ class Kinde
             $userModel = model(UserModel::class);
 
             if ($userModel->findByIdentity($profile['id'])) {
-                $user = $this->formatUserProfile($profile, true);
+                $user = $this->config->formatUserProfile($profile, true);
                 $userModel->updateByIdentity($profile['id'], $user);
             } else {
-                $user = $this->formatUserProfile($profile);
-                $userModel->insert($profile);
+                $user = $this->config->formatUserProfile($profile);
+                $userModel->insert($user);
             }
 
             return $this->config->afterCallbackSuccess();
@@ -56,26 +55,6 @@ class Kinde
     public function isAuthenticated(): bool
     {
         return $this->kindeClient->isAuthenticated;
-    }
-
-    protected function formatUserProfile(array $profile, bool $update = false): array
-    {
-        $data = [
-            'identity'      => $profile['id'],
-            'first_name'    => $profile['given_name'],
-            'last_name'     => $profile['family_name'],
-            'email'         => $profile['email'],
-            'picture'       => $profile['picture'],
-            'language'      => $this->config->defaultLanguage,
-            'timezone'      => $this->config->defaultTimezone,
-            'last_login_at' => Time::now('UTC')->format('Y-m-d H:i:s'),
-        ];
-
-        if ($update) {
-            unset($data['language'], $data['timezone']);
-        }
-
-        return $data;
     }
 
     public function __call(string $name, array $args)
