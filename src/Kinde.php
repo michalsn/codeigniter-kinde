@@ -30,7 +30,6 @@ class Kinde
     public function callback()
     {
         if (! $this->kindeClient->isAuthenticated) {
-
             $token = $this->kindeClient->getToken();
             $this->kindeConfig->setAccessToken($token->access_token);
 
@@ -64,6 +63,5 @@ class Kinde
         }
 
         throw new BadMethodCallException("Method {$name} does not exist in KindeClientSDK.");
-
     }
 }
